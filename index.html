@@ -457,7 +457,8 @@
             document.getElementById('catalog-stocks').innerHTML = `<p class="text-sm text-gray-500 font-mono animate-pulse">Scanning live exchange data...</p>`;
             
             try {
-                const response = await fetch('http://localhost:5000/api/mock/transactions', { 
+                // 🔥 Replaced localhost with the live Node Gateway URL
+                const response = await fetch('https://hackfinance-node-gateway.onrender.com/api/mock/transactions', { 
                     method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ uploadedData: userTransactions }) 
                 });
                 const data = await response.json();
